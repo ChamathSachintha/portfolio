@@ -59,9 +59,3 @@ src/
 ├── pages/     # Route-level page placeholders
 └── styles/    # Global CSS and Tailwind entry point
 ```
-
-Design tokens are defined in `tailwind.config.ts` from `DESIGN_REFERENCE.md`. Personal content, approved assets, animations, and CMS integration are not included in this foundation.
-
-## Git and environment hygiene
-
-Do not commit `node_modules`, build output, or `.env` files. Use `.env.example` only for documenting future public configuration names; Vite `VITE_*` values are public in the browser bundle and must never contain secrets.
