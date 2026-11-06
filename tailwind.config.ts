@@ -12,7 +12,12 @@ export default {
         muted: '#8B949E',
       },
       fontFamily: {
-        display: ['"Arial Narrow"', 'Arial', 'sans-serif'],
+        display: [
+          'Impact',
+          '"Arial Narrow"',
+          '"Roboto Condensed"',
+          'sans-serif',
+        ],
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       borderRadius: {

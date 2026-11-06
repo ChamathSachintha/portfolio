@@ -6,22 +6,14 @@ const navigation = [
   { label: 'Projects', to: '/projects' },
   { label: 'Gallery', to: '/gallery' },
   { label: 'Contact', to: '/contact' },
-  { label: 'Journal', to: '/university-journal' },
 ]
 
 export function SiteHeader() {
   return (
     <header className="border-b border-white/10">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-5 px-6 py-6 lg:px-10">
-        <NavLink
-          to="/"
-          className="font-display text-xl font-black uppercase tracking-tight text-text"
-          aria-label="Portfolio home"
-        >
-          Portfolio<span className="text-accent">.</span>
-        </NavLink>
+      <div className="mx-auto flex max-w-[min(86vw,1240px)] justify-center px-0 py-5">
         <nav aria-label="Main navigation">
-          <ul className="flex flex-wrap items-center justify-end gap-x-5 gap-y-2 text-sm text-muted">
+          <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm font-semibold text-text">
             {navigation.map((item) => (
               <li key={item.to}>
                 <NavLink

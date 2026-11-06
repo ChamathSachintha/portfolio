@@ -4,7 +4,7 @@ React, Vite, TypeScript, Tailwind CSS, and React Router foundation for a persona
 
 ## Status
 
-This repository currently contains the Phase 0 frontend foundation. Routes and reusable shell components are in place, while page-specific portfolio design and owner-approved content are intentionally deferred.
+The frontend foundation and the first homepage implementation are now in place. The homepage uses Chamath Sachintha's supplied professional information and the approved dark charcoal/lime visual direction. Other portfolio pages remain placeholders until their respective implementation phases.
 
 ## Stack
 
