@@ -1,0 +1,25 @@
+# AI agent instructions and internal planning
+AGENTS.md
+agent.md
+DESIGN_REFERENCE.md
+**/AGENTS.md
+**/agent.md
+**/DESIGN_REFERENCE.md
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+dist-ssr/
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# Editor files
+.vscode/
+.idea/
