@@ -1,0 +1,7 @@
+export { default as AboutPage } from './AboutPage'
+export { default as ContactPage } from './ContactPage'
+export { default as GalleryPage } from './GalleryPage'
+export { default as HomePage } from './HomePage'
+export { default as JournalEntryPage } from './JournalEntryPage'
+export { default as JournalPage } from './JournalPage'
+export { default as ProjectsPage } from './ProjectsPage'
