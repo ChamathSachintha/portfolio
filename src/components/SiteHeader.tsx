@@ -1,3 +1,4 @@
+
 import { NavLink } from 'react-router-dom'
 
 const navigation = [
@@ -6,6 +7,7 @@ const navigation = [
   { label: 'Projects', to: '/projects' },
   { label: 'Gallery', to: '/gallery' },
   { label: 'Contact', to: '/contact' },
+  { label: 'University Journal', to: '/university-journal' },
 ]
 
 export function SiteHeader() {

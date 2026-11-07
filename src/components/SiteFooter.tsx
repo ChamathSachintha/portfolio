@@ -1,23 +1,44 @@
-import { portfolioContent } from '../content/portfolio'
+import { Link, useLocation } from "react-router-dom";
+import { portfolioContent } from "../content/portfolio";
 
 export function SiteFooter() {
-  const { footer } = portfolioContent
+  const { pathname } = useLocation();
+
+  const showJournalAdmin =
+    pathname.replace(/\/+$/, "") === "/university-journal";
+  const { footer } = portfolioContent;
 
   return (
     <footer className="mt-10 px-0 pb-6">
+      {/* Existing portfolio footer */}
       <div className="mx-auto grid max-w-[min(86vw,1240px)] gap-10 rounded-panel bg-surface px-7 py-12 sm:px-12 sm:py-14 min-[900px]:grid-cols-[0.8fr_1.2fr] min-[900px]:items-center min-[900px]:px-14 min-[900px]:py-16">
         <p className="font-display text-4xl font-black uppercase leading-[0.85] tracking-[-0.03em] text-text sm:text-5xl">
-          {footer.name}<span className="text-accent">.</span>
+          {footer.name}
+          <span className="text-accent">.</span>
         </p>
+
         <div className="max-w-2xl text-left min-[900px]:justify-self-end min-[900px]:text-right">
           <p className="font-display text-4xl font-black uppercase leading-[0.86] text-muted sm:text-5xl min-[1200px]:text-6xl">
             {footer.lines[0]}
           </p>
+
           <p className="font-display text-4xl font-black uppercase leading-[0.86] text-accent sm:text-5xl min-[1200px]:text-6xl">
             {footer.lines[1]}
           </p>
         </div>
       </div>
+
+      {/* Journal Admin — visible only on the journal landing page */}
+      {showJournalAdmin && (
+        <div className="mx-auto mt-5 flex justify-center">
+          <Link
+            to="/journal-admin/login"
+            className="text-xs text-muted opacity-70 transition-colors hover:text-accent hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
+          >
+            Journal Admin
+          </Link>
+        </div>
+      )}
     </footer>
-  )
+  );
 }
