@@ -6,10 +6,11 @@ export function SiteFooter() {
 
   const showJournalAdmin =
     pathname.replace(/\/+$/, "") === "/university-journal";
+  const footerSpacing = pathname === "/about" ? "mt-2" : "mt-10";
   const { footer } = portfolioContent;
 
   return (
-    <footer className="mt-10 px-0 pb-6">
+    <footer className={`${footerSpacing} px-0 pb-6`}>
       {/* Existing portfolio footer */}
       <div className="mx-auto grid max-w-[min(86vw,1240px)] gap-10 rounded-panel bg-surface px-7 py-12 sm:px-12 sm:py-14 min-[900px]:grid-cols-[0.8fr_1.2fr] min-[900px]:items-center min-[900px]:px-14 min-[900px]:py-16">
         <p className="font-display text-4xl font-black uppercase leading-[0.85] tracking-[-0.03em] text-text sm:text-5xl">
@@ -32,10 +33,10 @@ export function SiteFooter() {
       {showJournalAdmin && (
         <div className="mx-auto mt-5 flex justify-center">
           <Link
-            to="/journal-admin/login"
+            to="/admin/login"
             className="text-xs text-muted opacity-70 transition-colors hover:text-accent hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
           >
-            Journal Admin
+            Admin Login
           </Link>
         </div>
       )}
