@@ -1,10 +1,11 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { supabase } from "../lib/supabase";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 type LoginStatus = "checking" | "login" | "authorized";
 
 export default function AdminLoginPage() {
+  const navigate = useNavigate();
   const [status, setStatus] = useState<LoginStatus>("checking");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -47,7 +48,7 @@ export default function AdminLoginPage() {
       }
 
       if (isAdmin === true) {
-        setStatus("authorized");
+        navigate("/admin", { replace: true });
       } else {
         await client.auth.signOut();
         if (active) setStatus("login");
@@ -59,7 +60,7 @@ export default function AdminLoginPage() {
     return () => {
       active = false;
     };
-  }, []);
+  }, [navigate]);
 
   async function handleLogin(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -101,7 +102,7 @@ export default function AdminLoginPage() {
 
       setPassword("");
       setShowPassword(false);
-      setStatus("authorized");
+      navigate("/admin", { replace: true });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Authentication failed.");
     } finally {
@@ -151,15 +152,15 @@ export default function AdminLoginPage() {
         </p>
 
         <p className="mt-3 text-sm text-muted">
-          The content management dashboard will be implemented in the next step.
+          Choose a Journal or Software Projects workspace from the admin hub.
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
           <Link
-            to="/journal-admin"
+            to="/admin"
             className="rounded-lg bg-accent px-6 py-3 font-bold text-[#131313]"
           >
-            Open CMS Dashboard
+            Open Admin Hub
           </Link>
 
           <button
@@ -185,10 +186,10 @@ export default function AdminLoginPage() {
     <section className="mx-auto max-w-lg rounded-2xl bg-surface p-8 sm:p-12">
       <div className="mb-8 text-center">
         <p className="mb-3 text-sm font-bold uppercase tracking-widest text-accent">
-          University Journal
+          Portfolio Administration
         </p>
 
-        <h1 className="font-display text-5xl text-text">CMS Login</h1>
+        <h1 className="font-display text-5xl text-text">Admin Login</h1>
 
         <p className="mt-4 text-sm text-muted">Administrator access only</p>
       </div>

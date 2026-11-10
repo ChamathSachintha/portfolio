@@ -5,7 +5,6 @@ const navigation = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
   { label: 'Projects', to: '/projects' },
-  { label: 'Gallery', to: '/gallery' },
   { label: 'Contact', to: '/contact' },
   { label: 'University Journal', to: '/university-journal' },
 ]

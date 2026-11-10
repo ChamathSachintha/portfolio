@@ -1,10 +1,32 @@
+import { useEffect, useState } from 'react'
 import { LinkButton } from '../components/Button'
 import { ProjectCard } from '../components/ProjectCard'
 import { portfolioContent } from '../content/portfolio'
 import { Link } from 'react-router-dom'
+import { getPublishedFeaturedProjects } from '../services/projects'
+import type { ProjectCardData } from '../types/project'
 
 export default function HomePage() {
-  const { hero, introduction, featuredProjects, contact } = portfolioContent
+  const { hero, introduction, contact } = portfolioContent
+  const [cmsProjects, setCmsProjects] = useState<ProjectCardData[]>([])
+  const [projectsLoading, setProjectsLoading] = useState(true)
+  const [cmsError, setCmsError] = useState('')
+
+  useEffect(() => {
+    let active = true
+    getPublishedFeaturedProjects()
+      .then((projects) => {
+        if (active) setCmsProjects(projects)
+      })
+      .catch((err) => {
+        console.error('Featured projects loading failed:', err)
+        if (active) setCmsError('Featured projects are temporarily unavailable.')
+      })
+      .finally(() => {
+        if (active) setProjectsLoading(false)
+      })
+    return () => { active = false }
+  }, [])
 
   return (
     <div className="space-y-7">
@@ -43,6 +65,7 @@ export default function HomePage() {
           </p>
           <div className="mt-5 flex items-center justify-center gap-6">
             <a
+              className="social-link h-9 w-9"
               href={hero.socialLinks.linkedin.href}
               target="_blank"
               rel="noreferrer"
@@ -55,6 +78,7 @@ export default function HomePage() {
               />
             </a>
             <a
+              className="social-link h-9 w-9"
               href={hero.socialLinks.github.href}
               target="_blank"
               rel="noreferrer"
@@ -99,10 +123,21 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="mt-5 grid grid-cols-1 gap-5 min-[768px]:grid-cols-2 min-[1200px]:grid-cols-3">
-            {featuredProjects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
+            {projectsLoading && (
+              <p className="col-span-full rounded-xl bg-surface p-8 text-center text-muted" role="status">
+                Loading featured projects...
+              </p>
+            )}
+            {!projectsLoading && !cmsError && cmsProjects.length === 0 && (
+              <p className="col-span-full rounded-xl bg-surface p-8 text-center text-muted">
+                Featured projects will appear here soon.
+              </p>
+            )}
+            {!projectsLoading && !cmsError && cmsProjects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
             ))}
           </div>
+          {cmsError && <p className="mt-4 text-sm text-red-400" role="alert">{cmsError}</p>}
           <div className="mt-7 flex justify-center">
             <LinkButton to="/projects">
               View All Projects <span aria-hidden="true" className="ml-2">→</span>

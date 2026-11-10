@@ -6,5 +6,12 @@ const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
 
 export const supabase =
   supabaseUrl && supabaseKey
-    ? createClient(supabaseUrl, supabaseKey)
+    ? createClient(supabaseUrl, supabaseKey, {
+        auth: {
+          persistSession: true,
+          storage: window.sessionStorage,
+          autoRefreshToken: true,
+          detectSessionInUrl: true,
+        },
+      })
     : null

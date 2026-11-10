@@ -114,7 +114,7 @@ export default function JournalPage() {
               <Link
                 key={entry.id}
                 to={`/university-journal/${entry.slug}`}
-                className="group overflow-hidden rounded-2xl border border-white/10 bg-surface transition-colors hover:border-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
+                className="group overflow-hidden rounded-2xl border border-white/10 bg-surface transition duration-200 ease-out hover:-translate-y-1 hover:border-accent hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent motion-reduce:transition-none motion-reduce:hover:transform-none"
               >
                 <div className="flex aspect-video items-center justify-center overflow-hidden bg-[#202731]">
                   {entry.coverUrl ? (

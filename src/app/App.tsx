@@ -11,10 +11,15 @@ import {
   JournalEntryPage,
   JournalPage,
   ProjectsPage,
+  ProjectDetailPage,
 } from "../pages";
 
 import AdminDashboardPage from "../pages/AdminDashboardPage";
 import AdminJournalSettingsPage from "../pages/AdminJournalSettingsPage";
+import PortfolioAdminProjectsPage from "../pages/PortfolioAdminProjectsPage";
+import PortfolioAdminProjectEditorPage from "../pages/PortfolioAdminProjectEditorPage";
+import PortfolioAdminFeaturedPage from "../pages/PortfolioAdminFeaturedPage";
+import AdminHubPage from "../pages/AdminHubPage";
 
 function App() {
   return (
@@ -23,6 +28,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/projects/:slug" element={<ProjectDetailPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/contact" element={<ContactPage />} />
 
@@ -39,6 +45,8 @@ function App() {
         />
 
         {/* Journal CMS login */}
+        <Route path="/admin/login" element={<AdminLoginPage />} />
+        <Route path="/admin" element={<AdminHubPage />} />
         <Route path="/journal-admin/login" element={<AdminLoginPage />} />
         <Route path="/journal-admin" element={<AdminDashboardPage />} />
         <Route
@@ -50,6 +58,10 @@ function App() {
           path="/journal-admin/sessions/new"
           element={<AdminCreateSessionPage />}
         />
+        <Route path="/portfolio-admin/projects" element={<PortfolioAdminProjectsPage />} />
+        <Route path="/portfolio-admin/projects/new" element={<PortfolioAdminProjectEditorPage />} />
+        <Route path="/portfolio-admin/projects/:id/edit" element={<PortfolioAdminProjectEditorPage />} />
+        <Route path="/portfolio-admin/featured" element={<PortfolioAdminFeaturedPage />} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

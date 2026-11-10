@@ -247,6 +247,12 @@ export default function AdminDashboardPage() {
           <p className="mt-3 text-sm text-muted">
             Signed in as {email}
           </p>
+          <Link
+            to="/admin"
+            className="mt-3 inline-block text-sm font-semibold text-accent hover:underline"
+          >
+            ← Admin Hub
+          </Link>
         </div>
 
         <button
