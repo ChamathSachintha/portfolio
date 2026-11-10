@@ -20,8 +20,10 @@ export function SiteHeader() {
                 <NavLink
                   to={item.to}
                   className={({ isActive }) =>
-                    `transition-colors hover:text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
-                      isActive ? 'font-bold text-accent' : ''
+                    `inline-flex rounded-full px-3 py-2 transition-colors hover:bg-surface hover:text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
+                      isActive
+                        ? 'bg-accent font-bold text-page hover:bg-accent hover:text-page'
+                        : ''
                     }`
                   }
                   end={item.to === '/'}
