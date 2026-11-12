@@ -1,4 +1,5 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { PageLayout } from "../layouts/PageLayout";
 import AdminCreateSessionPage from "../pages/AdminCreateSessionPage";
 import AdminLoginPage from "../pages/AdminLoginPage";
@@ -22,9 +23,20 @@ import PortfolioAdminProjectEditorPage from "../pages/PortfolioAdminProjectEdito
 import PortfolioAdminFeaturedPage from "../pages/PortfolioAdminFeaturedPage";
 import AdminHubPage from "../pages/AdminHubPage";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <PageLayout>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
