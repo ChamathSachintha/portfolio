@@ -12,6 +12,7 @@ import {
   JournalPage,
   ProjectsPage,
   ProjectDetailPage,
+  TurtleConservationPage,
 } from "../pages";
 
 import AdminDashboardPage from "../pages/AdminDashboardPage";
@@ -34,6 +35,10 @@ function App() {
 
         {/* Public University Journal */}
         <Route path="/university-journal" element={<JournalPage />} />
+        <Route
+          path="/university-journal/projects/turtle-conservation"
+          element={<TurtleConservationPage />}
+        />
         <Route
           path="/journal-admin/sessions/:id/edit"
           element={<AdminEditSessionPage />}

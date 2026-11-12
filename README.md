@@ -75,6 +75,7 @@ The Contact page uses `functions/api/contact.ts` when Cloudflare Pages is config
 - `/gallery`
 - `/contact`
 - `/university-journal`
+- `/university-journal/projects/turtle-conservation`
 - `/university-journal/:slug`
 - `/journal-admin/login`
 - `/journal-admin`
