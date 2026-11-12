@@ -30,7 +30,7 @@ export const turtleConservationContent = {
   // The user's Google Maps URL is retained as the direct external map link.
   // The visit date is still unknown. Do not confuse it with business opening hours.
   location: {
-    venueName: 'Sea Turtles Sri Lanka Conservation Project',
+    venueName: 'Sea Turtles Sri Lanka Conservation Center',
     address: 'RVG7+GCR, Dehiwala–Mount Lavinia, Sri Lanka',
     latitude: 6.8263625,
     longitude: 79.863515625,
