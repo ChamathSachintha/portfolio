@@ -157,6 +157,39 @@ export default function JournalPage() {
           </div>
         )}
       </section>
+
+      <section className="overflow-hidden rounded-2xl border border-accent/30 bg-surface">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
+          <img
+            src="/images/university-journal/turtle-conservation/hero-team-beach.webp"
+            alt="The turtle conservation project team at the beach"
+            className="h-full min-h-72 w-full object-cover"
+            loading="lazy"
+          />
+          <div className="flex flex-col justify-center p-7 sm:p-10">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">
+              Final Community Project
+            </p>
+            <h2 className="mt-4 font-display text-4xl font-black uppercase leading-none text-text sm:text-5xl">
+              Turtle Conservation
+            </h2>
+            <p className="mt-4 font-semibold text-accent">
+              Our Professional Skills Final Group Project
+            </p>
+            <p className="mt-5 leading-8 text-muted">
+              For our final community project, our team of 10 took part in turtle
+              conservation activities, learning about marine conservation while
+              working together outside the classroom.
+            </p>
+            <Link
+              to="/university-journal/projects/turtle-conservation"
+              className="mt-7 inline-flex w-fit rounded-full bg-accent px-5 py-3 text-sm font-bold text-page transition-colors hover:bg-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+            >
+              Explore Project →
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

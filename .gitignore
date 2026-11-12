@@ -23,5 +23,9 @@ dist-ssr/
 # Editor files
 .vscode/
 .idea/
+
+# Local reference materials
+local-references/
+
 # Local Vite cache
 .vite/
